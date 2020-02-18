@@ -25,14 +25,57 @@
             </div>
             <div class="card-body">
               <h5 class="card-title">Press "Generate Password" button to create a unique password</h5>
-              <input type="text" value="test" id="input">
+              <input type="text" value="x" id="input">
               <a href="#" class="btn btn-primary">Generate Password</a>
             </div>
             <button onclick="copy()">Copy Password</button>
-              
-          </div>
+         </div>
     </div>   
+<script type="text/javascript">
 
+    
+    //variables for password
+
+    var elements = {
+        number: "1234567890",
+        special: "!@#$%^&*+?<>",
+        letterLower: "abcdefghijklmnopqrstuvwxyz",
+        letterUpper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    }
+
+
+
+
+    //Prompts for getting password info
+    
+    var confirmPass = confirm("Would you like to create a unique password?");
+    var specialChar = confirm("Would you like to add special characters?");
+    var numberChar  = confirm("Would you like the password to be alphanumberic?");
+    var upperChar = confirm("Would you like uppercase and lowercase values?");
+
+    //Log stats from input
+    function reWriteStats() {
+
+    console.log(confirmPass);
+    console.log(specialChar);
+    console.log(numberChar);
+    console.log(upperChar);
+    console.log("--------------------")
+    }
+
+//start function
+
+reWriteStats();
+
+    function generatePassword() {
+
+    var x = document.getElementById("input")  
+    x.innerHTML = Math.floor((Math.random() elements.number) +1)
+    }
+
+
+generatePassword();    
+</script>
     
     
 <footer>
