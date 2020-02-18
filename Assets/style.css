@@ -1,4 +1,5 @@
-/* Font for page: font-family: 'Cinzel', serif;*/
+/* Font for page: font-family: 'Cinzel', serif;
+font-family: 'Open Sans', sans-serif;*/
 
 .header {
     font-family: 'Cinzel', serif;
@@ -26,6 +27,6 @@ body {
 .card {
     margin-top: 50pt;
     margin-bottom: 20px;
-    font-family: 'Cinzel', serif;
+    font-family: 'Open Sans', sans-serif;
 }
 

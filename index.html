@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="Assets/cssreset.css">
     <link rel="stylesheet" href="Assets/style.css">
     <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Password Generator</title>
 </head>
@@ -25,22 +26,44 @@
             </div>
             <div class="card-body">
               <h5 class="card-title">Press "Generate Password" button to create a unique password</h5>
-              <input type="text" value="x" id="input">
-              <a href="#" class="btn btn-primary">Generate Password</a>
+              <form name="generate">
+              <input type="text" size=18 name="output">
+              <input type ="button" value="Generate Password" onClick="populateform(this.form.thelength.value)"><br />
+              <b> Password length:</b> <input type="text" name="thelength" size=2 value="7">
+              </form>
             </div>
             <button onclick="copy()">Copy Password</button>
          </div>
     </div>   
-<script type="text/javascript">
 
-    
-    //variables for password
+
+<script>
+
+var keylist="abcdefghijklmnopqrstuvwxyz123456789"
+var keylist2="!@#$%^&*?><"
+var temp=''
+
+function generatepass(plength){
+temp=''
+for (i=0;i<plength;i++)
+temp+=keylist.charAt(Math.floor(Math.random()*keylist.length))
+return temp
+}
+
+function populateform(enterlength){
+document.generate.output.value=generatepass(enterlength)
+}    
+   
+
+
+//variables for password
 
     var elements = {
         number: "1234567890",
         special: "!@#$%^&*+?<>",
         letterLower: "abcdefghijklmnopqrstuvwxyz",
         letterUpper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        temp:"",
     }
 
 
@@ -63,18 +86,20 @@
     console.log("--------------------")
     }
 
+    reWriteStats();
+
+    //function generatePassword() {
+
+    //var x = document.getElementById("input")  
+    //x.innerHTML = Math.floor((Math.random() elements.number) +1)
+    //}
+
 //start function
 
-reWriteStats();
 
-    function generatePassword() {
+//generatePassword();   
 
-    var x = document.getElementById("input")  
-    x.innerHTML = Math.floor((Math.random() elements.number) +1)
-    }
-
-
-generatePassword();    
+ 
 </script>
     
     
