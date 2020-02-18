@@ -1,0 +1,30 @@
+/* Font for page: font-family: 'Cinzel', serif;*/
+
+.header {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 15px;
+    font-style: bold;
+    text-decoration: overline underline;
+}
+
+body {
+    background: linear-gradient(270deg, rgba(34,195,177,1) 0%, rgba(253,45,45,1) 100%);
+    
+}
+
+.footer {
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Cinzel', serif;
+}   
+
+.card {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Cinzel', serif;
+}
