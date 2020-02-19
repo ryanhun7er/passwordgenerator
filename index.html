@@ -39,15 +39,17 @@
 
 <script>
 
-var keylist="abcdefghijklmnopqrstuvwxyz123456789"
-var keylist2="!@#$%^&*?><"
-var temp=''
+var key1="abcdefghijklmnopqrstuvwxyz"
+var key2="!@#$%^&*?><"
+var key3="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var key4="12304567890"
+var pass=''
 
 function generatepass(plength){
-temp=''
-for (i=0;i<plength;i++)
-temp+=keylist.charAt(Math.floor(Math.random()*keylist.length))
-return temp
+pass=''
+for (i = 0; i < plength; i++)
+pass+=key1.charAt(Math.floor(Math.random()*key1.length))
+return pass
 }
 
 function populateform(enterlength){
@@ -63,7 +65,7 @@ document.generate.output.value=generatepass(enterlength)
         special: "!@#$%^&*+?<>",
         letterLower: "abcdefghijklmnopqrstuvwxyz",
         letterUpper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        temp:"",
+        pass:"",
     }
 
 
