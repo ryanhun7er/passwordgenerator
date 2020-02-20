@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="Assets/Images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="Assets/Images/favicon-16x16.png" sizes="16x16" />
     <title>Password Generator</title>
 </head>
 <body>
@@ -27,9 +29,9 @@
             <div class="card-body">
               <h5 class="card-title">Press "Generate Password" button to create a unique password</h5>
               <form name="generate">
-              <input type="text" size=18 name="output">
+              <input type="text" size=18 name="output" id="password">
               <input type ="button" value="Generate Password" onClick="populateform(this.form.thelength.value)"><br />
-              <b> Password length:</b> <input type="text" name="thelength" size=2 value="7">
+              <b> Password length:</b> <input type="text" name="thelength" size=2 value="10">
               </form>
             </div>
             <button onclick="copy()">Copy Password</button>
@@ -39,35 +41,54 @@
 
 <script>
 
-var key1="abcdefghijklmnopqrstuvwxyz"
-var key2="!@#$%^&*?><"
-var key3="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var key4="12304567890"
-var pass=''
+var key1="abcdefghijklmnopqrstuvwxyz";
+var key2="!@#$%^&*?><";
+var key3="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var key4="12304567890";
+var pass="";
+var passwordCharSet="";
 
 function generatepass(plength){
-pass=''
+pass=""
+passwordCharSet=""
+
+if (confirmPass) {
+  passwordCharSet += key1;
+}
+if (specialChar) {
+  passwordCharSet += key2;
+}
+if (numberChar) {
+  passwordCharSet += key4;
+}
+if (upperChar) {
+  passwordCharSet += key3;
+}
+plength = Number(thelength.value);
+
 for (i = 0; i < plength; i++)
-pass+=key1.charAt(Math.floor(Math.random()*key1.length))
+pass += passwordCharSet.charAt(Math.floor(Math.random()*passwordCharSet.length));
+
+if (confirmPass === false)
+  
+
 return pass
 }
 
-function populateform(enterlength){
-document.generate.output.value=generatepass(enterlength)
+
+function populateform(plength){
+document.generate.output.value=generatepass(plength)
 }    
-   
 
+//function to copy password
 
-//variables for password
-
-    var elements = {
-        number: "1234567890",
-        special: "!@#$%^&*+?<>",
-        letterLower: "abcdefghijklmnopqrstuvwxyz",
-        letterUpper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        pass:"",
-    }
-
+function copy() {
+  var copyText = document.getElementById("password");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  alert("Copied the text: " + copyText.value);
+}
 
 
 
@@ -76,7 +97,7 @@ document.generate.output.value=generatepass(enterlength)
     var confirmPass = confirm("Would you like to create a unique password?");
     var specialChar = confirm("Would you like to add special characters?");
     var numberChar  = confirm("Would you like the password to be alphanumberic?");
-    var upperChar = confirm("Would you like uppercase and lowercase values?");
+    var upperChar = confirm("Would you like to include upper class values?");
 
     //Log stats from input
     function reWriteStats() {
@@ -89,17 +110,8 @@ document.generate.output.value=generatepass(enterlength)
     }
 
     reWriteStats();
+    
 
-    //function generatePassword() {
-
-    //var x = document.getElementById("input")  
-    //x.innerHTML = Math.floor((Math.random() elements.number) +1)
-    //}
-
-//start function
-
-
-//generatePassword();   
 
  
 </script>
@@ -107,7 +119,7 @@ document.generate.output.value=generatepass(enterlength)
     
 <footer>
     <div class="footer">
-        <p3>RHW Designs | Contact: <a href="mailto:ryanhwilkinson@icloud.com">click here</a></p3>
+        <p>RHW Designs | Contact: <a href="mailto:ryanhwilkinson@icloud.com">click here</a></p>
     </div>
 </footer>    
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
