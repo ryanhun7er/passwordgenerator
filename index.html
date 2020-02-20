@@ -41,16 +41,16 @@
 
 <script>
 
-var key1="abcdefghijklmnopqrstuvwxyz";
-var key2="!@#$%^&*?><";
-var key3="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var key4="12304567890";
-var pass="";
-var passwordCharSet="";
+var key1="abcdefghijklmnopqrstuvwxyz",
+ key2="!@#$%^&*?><",
+ key3="ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+ key4="12304567890",
+ pass="",
+ passwordCharSet="";
 
-function generatepass(plength){
-pass=""
-passwordCharSet=""
+function generatepass(plength) {
+pass="";  
+passwordKeySet=""
 
 if (confirmPass) {
   passwordCharSet += key1;
@@ -64,15 +64,17 @@ if (numberChar) {
 if (upperChar) {
   passwordCharSet += key3;
 }
-plength = Number(thelength.value);
+
+plength = Number("thelength")
 
 for (i = 0; i < plength; i++)
-pass += passwordCharSet.charAt(Math.floor(Math.random()*passwordCharSet.length));
+pass += passwordCharSet.charAt(Math.floor(Math.random() * passwordCharSet.length));
 
-if (confirmPass === false)
-  
+//if (confirmPass === false) {
+  //endif
+//}
 
-return pass
+return passwordCharSet
 }
 
 
