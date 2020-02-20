@@ -14,6 +14,7 @@
 </head>
 <body>
 
+  <!-- Webpage and card/ form for password generator-->
     <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -40,7 +41,7 @@
 
 
 <script>
-
+// variable key for password
 var key1="abcdefghijklmnopqrstuvwxyz",
  key2="!@#$%^&*?><",
  key3="ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -48,6 +49,7 @@ var key1="abcdefghijklmnopqrstuvwxyz",
  pass="",
  passwordCharSet="";
 
+ //if then function for responses on console log
 function generatepass(plength) {
 pass="";  
 passwordKeySet=""
@@ -94,14 +96,14 @@ function copy() {
 
 
 
-    //Prompts for getting password info
+//Prompts for getting password info
     
     var confirmPass = confirm("Would you like to create a unique password?");
     var specialChar = confirm("Would you like to add special characters?");
     var numberChar  = confirm("Would you like the password to be alphanumberic?");
     var upperChar = confirm("Would you like to include upper class values?");
 
-    //Log stats from input
+//Log stats from input
     function reWriteStats() {
 
     console.log(confirmPass);
