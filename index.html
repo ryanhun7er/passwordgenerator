@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Assets/cssreset.css">
-    <link rel="stylesheet" href="Assets/style.css">
+    <link rel="stylesheet" href="assets/cssreset.css">
+    <link rel="stylesheet" href="assets/style.css">
     <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="icon" type="image/png" href="Assets/Images/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="Assets/Images/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="assets/images/favicon-16x16.png" sizes="16x16" />
+    <script src="https://randojs.com/1.0.0.js"></script>
     <title>Password Generator</title>
 </head>
 <body>
 
+  
   <!-- Webpage and card/ form for password generator-->
     <div class="container">
         <div class="row">
@@ -31,58 +33,50 @@
               <h5 class="card-title">Press "Generate Password" button to create a unique password</h5>
               <form name="generate">
               <input type="text" size=18 name="output" id="password">
-              <input type ="button" value="Generate Password" onClick="populateform(this.form.thelength.value)"><br />
+              <input type ="button" value="Generate Password" onClick="generatePass()"><br />
               <b> Password length:</b> <input type="text" name="thelength" size=2 value="10">
               </form>
             </div>
             <button onclick="copy()">Copy Password</button>
          </div>
     </div>   
-
-
+  
+    
 <script>
-// variable key for password
-var key1="abcdefghijklmnopqrstuvwxyz",
- key2="!@#$%^&*?><",
- key3="ABCDEFGHIJKLMNOPQRSTUVWXYZ",
- key4="12304567890",
- pass="",
- passwordCharSet="";
 
- //if then function for responses on console log
-function generatepass(plength) {
-pass="";  
-passwordKeySet=""
 
-if (confirmPass) {
-  passwordCharSet += key1;
-}
-if (specialChar) {
-  passwordCharSet += key2;
-}
-if (numberChar) {
-  passwordCharSet += key4;
-}
-if (upperChar) {
-  passwordCharSet += key3;
-}
 
-plength = Number("thelength")
+// Variables for unique password
 
-for (i = 0; i < plength; i++)
-pass += passwordCharSet.charAt(Math.floor(Math.random() * passwordCharSet.length));
+  //var key1="abcdefghijklmnopqrstuvwxyz";
+  //var key2="!@#$%^&*?><";
+  //var key3="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  //var key4="12304567890";
 
-//if (confirmPass === false) {
-  //endif
-//}
+window.addEventListener('load', function() {
+  generatePass();
+})
 
-return passwordCharSet
-}
+  function generatePass() {
+  var pass = "";
 
+  var include = {};
+    if (lowerCase) pass += rando(include.lowerCase = "abcdefghijklmnopqrstuvwxyz");
+    if (upperCase) pass += rando(include.upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    if (alphaNum)  pass += rando(include.alphaNum  = "12304567890");
+    if (specialChar) pass += rando(include.specialChar = "!@#$%^&*?><");
+
+    plength = Number("thelength")
+
+    for (var i = pass.length; i < length; i++)
+    pass += rando(rando(include).value);
+
+    document.getElementById("password").value = randoSequence(password).join("");
+}  
 
 function populateform(plength){
-document.generate.output.value=generatepass(plength)
-}    
+document.generate.output.value=generatepass(pass.length)
+}     
 
 //function to copy password
 
@@ -94,27 +88,28 @@ function copy() {
   alert("Copied the text: " + copyText.value);
 }
 
-
-
 //Prompts for getting password info
-    
-    var confirmPass = confirm("Would you like to create a unique password?");
-    var specialChar = confirm("Would you like to add special characters?");
-    var numberChar  = confirm("Would you like the password to be alphanumberic?");
-    var upperChar = confirm("Would you like to include upper class values?");
+  var alertY = alert("Let's create a unique password!")
+  var lowerCase = confirm("Would you like to add lower case characters?");
+  var upperCase = confirm("Would you like to add upper case characters?");
+  var alphaNum  = confirm("Would you like the password to include alphanumeric characters?");
+  var specialChar = confirm("Would you like to include special values?");
+  var alertN = alert("By default, the password is defined as 10 characters. Feel free to adjust the number and then select 'Generate Password'");
+
 
 //Log stats from input
     function reWriteStats() {
 
-    console.log(confirmPass);
+    console.log(lowerCase);
+    console.log(upperCase);
+    console.log(alphaNum);
     console.log(specialChar);
-    console.log(numberChar);
-    console.log(upperChar);
     console.log("--------------------")
     }
 
-    reWriteStats();
-    
+reWriteStats();
+generatePass();
+
 
 
  
