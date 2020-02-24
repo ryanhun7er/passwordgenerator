@@ -37,10 +37,29 @@ body {
     margin-top: 50pt;
     margin-bottom: 20%;
     font-family: 'Open Sans', sans-serif;
+    font-style: bold;
+    
 }
 
 .row {
     overflow: auto;
     padding-bottom: 5%;
 }
+
+.card-header {
+    font-size: larger;
+    font-family: 'Cinzel', serif;
+    font-style: italic   
+}
+
+.card-title {
+    font-family: 'Cinzel', serif;
+}
+
+.card-body {
+    font-family: 'Cinzel', serif;
+}
+
+
+
 
