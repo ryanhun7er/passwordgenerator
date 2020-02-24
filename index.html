@@ -33,109 +33,20 @@
               <h5 class="card-title">Press "Generate Password" button to create a unique password</h5>
               <form name="generate">
               <input type="text" size=18 name="output" id="password">
-              <input type ="button" value="Generate Password" onClick="generatePass()"><br />
-              <b> Password length:</b> <input type="text" id="length" size=2 value="10">
+              <input type ="button" value="Generate Password" id= generate>
+              <br />
+              <b> Password length:</b> <input type="number" id="lengths" size=2 value= "10">
               </form>
             </div>
-            <button onclick="copy()">Copy Password</button>
+            <button id= copyme>Copy Password</button>
          </div>
     </div>   
-  
+
+    <script src="assets/pass.js"></script>
+
+
     
-<script>
 
-// generate random password
-
-function generatePass() {
-
-  var complexity = document.getElementById("length").value;
-
-  //possible password values
-
-  var lowerCase="abcdefghijklmnopqrstuvwxyz"
-  var upperCase="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  var specialChar="!@#$%^&*?><"
-  var numbers="12304567890"
-
-  var password = l + u + s + n;
-  var l = "";
-  var u = "";
-  var s = "";
-  var n = "";
-
- 
-  console.log(generatePass);
-
-  //create loop to choose characters
-
-  for (var i = 1; i <= complexity; i++) {
-
-    if (lowerCase) {
-      l = l + lowerCase.charAt(Math.floor(Math.random() * Math.floor(lowerCase.length-1)));
-    }
-
-    if (upperCase) {
-      u = u + upperCase.charAt(Math.floor(Math.random() * Math.floor(upperCase.length-1)));
-
-    }
-    if (specialChar) {
-      s = s + specialChar.charAt(Math.floor(Math.random() * Math.floor(specialChar.length-1)));
-
-    }
-    if (numbers) {
-      n = n + numbers.charAt(Math.floor(Math.random() * Math.floor(numbers.length-1)));
-
-    }
-
-  }
-
-function generateRandom() {
-
-}
-  //add password to textbox
-
-  document.getElementById("password").value = password;
-
-}
-
-
-
-//function to copy password
-
-function copy() {
-  var copyText = document.getElementById("password");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999)
-  document.execCommand("copy");
-  alert("Copied the text: " + copyText.value);
-}
-
-//Prompts for getting password info
-  var alertY = alert("Let's create a unique password!")
-  var lowerCase = confirm("Would you like to add lower case characters?");
-  var upperCase = confirm("Would you like to add upper case characters?");
-  var numbers  = confirm("Would you like the password to include numeric characters?");
-  var specialChar = confirm("Would you like to include special values?");
-  var alertN = alert("By default, the password is defined as 10 characters. Feel free to adjust the number and then select 'Generate Password'");
-
-
-//Log stats from input
-    function reWriteStats() {
-
-    console.log(lowerCase);
-    console.log(upperCase);
-    console.log(numbers);
-    console.log(specialChar);
-    console.log("--------------------")
-    }
-
-reWriteStats();
-
-
-
-
- 
-</script>
     
     
 <footer>
