@@ -35,6 +35,7 @@ function generatePass() {
  }
  else if (typeof characterCount == "number" && characterCount > 128) {
     alert("Password length request is out of scope. Please choose between 8 & 128 characters.")
+    return ""
  }
  answers();
 
