@@ -26,7 +26,7 @@ function generatePass() {
  var characterCount = +document.getElementById("length").value;
  var characterArray = [];
 
- if (typeof characterCount == "number" && characterCount > 0) {
+ if (typeof characterCount == "number" && characterCount >= 8 && characterCount <= 128) {
   alert("Let's create a unique password!");
   lowerCaseQ = confirm("Would you like to add lower case characters?");
   upperCaseQ = confirm("Would you like to add upper case characters?");
@@ -38,6 +38,10 @@ function generatePass() {
  if (answer < 1) {
    alert("You can't get a password without choosing a value! Please select at least one characteristic for your password.")
    return ""
+ }
+
+ if (typeof characterCount == "number" && characterCount > 128) {
+   alert("Password length request is out of scope. Please choose between 8 & 128 characters.")
  }
  
  else {
