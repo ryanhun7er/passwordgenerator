@@ -46,7 +46,7 @@ function generatePass() {
      console.log(characterArray);
    }
 
- var passwordRandom = Array.prototype.slice.call(characterArray);
+ var passwordRandom = [].slice.call(characterArray);
  return '' + passwordRandom.join("") + '';  
  }
  
