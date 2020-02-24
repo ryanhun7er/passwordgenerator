@@ -36,7 +36,7 @@ function generatePass() {
  answers();
 
  if (answer < 1) {
-   alert("You can't get a password without choosing a value! Please select at least one characteristic for your password")
+   alert("You can't get a password without choosing a value! Please select at least one characteristic for your password.")
    return ""
  }
  
