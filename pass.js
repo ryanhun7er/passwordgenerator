@@ -32,7 +32,10 @@ function generatePass() {
   upperCaseQ = confirm("Would you like to add upper case characters?");
   numbersQ = confirm("Would you like the password to include numeric characters?");
   specialCharQ = confirm("Would you like to include special values?");
-
+ }
+ else if (typeof characterCount == "number" && characterCount > 128) {
+    alert("Password length request is out of scope. Please choose between 8 & 128 characters.")
+ }
  answers();
 
  if (answer < 1) {
@@ -40,9 +43,8 @@ function generatePass() {
    return ""
  }
 
- if (typeof characterCount == "number" && characterCount > 128) {
-   alert("Password length request is out of scope. Please choose between 8 & 128 characters.")
- }
+ 
+ 
  
  else {
    while (characterCount > characterArray.length) {
@@ -53,9 +55,10 @@ function generatePass() {
  var passwordRandom = [].slice.call(characterArray);
  return '' + passwordRandom.join("") + '';  
  }
+}
  
-}
-}
+
+
 
 
 // function to count responses to questions
